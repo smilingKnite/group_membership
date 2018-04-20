@@ -1,5 +1,7 @@
-<h1>Member LogIn/Register</h1>
-
+<header id="main">
+    <h1>Member LogIn/Register</h1>
+</header>
+<br>
 <div class="container ">
     <div class="row">
         <div class="col-md-6 form">
@@ -28,14 +30,12 @@
 <br>
 
 <% if flash[:errors] %>
-<div class="row">
-    <div class="col-md-6 ">
+    <div >
         <div id="error_box">
             <div id="head">
                 <p>!ERROR</p>
             </div>
             <h5 id="error"><%= flash[:errors] %></h5>
-    </div>
     </div>
     </div>
 <% end %>
