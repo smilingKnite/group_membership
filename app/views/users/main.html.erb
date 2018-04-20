@@ -1,0 +1,47 @@
+<header id="main">
+    <h1>Hello, <%= @name %></h1>
+    
+</header>
+<br>
+
+<div class="nameH">
+    <div class="newS">
+        <button><a href="/logout">Logout</a></button>
+    </div>
+</div>
+
+<br>
+<div id="content">
+    <div class="row">
+        <div class="col-md-6 cont">
+            <% @org.each do |o| %>
+                <div class="secret">
+                    <h6><a href="/view/<%= o.id  %>"><%= o.name %></a></h6>
+                    <p>Members: <%= o.members.count %></p>
+                    <p><%= o.description %></p>
+
+                    <% if @id == o.user_id %>
+                        <form action="/delete/<%= o.id %>" method="post" class="butt">
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <input type="submit" value="Delete">
+                        </form>
+                   
+                    <% end %>
+                   
+                </div>
+            <% end %>
+        </div>
+        <div class="col-md-6 sec">
+            <h4>Create a new Organization</h4>
+            <form action="/create/<%= @id %>" method="post" class="butt">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                Org. Name: <input type="text" name="name" >
+                Description: <input type="text" name='description'>
+                <input type="submit" value="Join">
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+

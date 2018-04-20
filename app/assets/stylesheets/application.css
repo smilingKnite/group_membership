@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+.form {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+}
+.form input {
+    display: block;
+    margin: auto;
+}
+#error {
+    color: red;
+    display: block;
+    text-align: center;
+    background-color: white;
+}
+#error_box {
+    height: 100px;
+    border: 2px solid red;
+    border-radius: 10px 10px 20px 20px;
+    width: 400px;
+    background-color: white;
+    
+}
+#head {
+    color: white;
+    background-color: red;
+    border-radius: 8px 8px 0px 0px;
+    text-align: center;
+}
+.name {
+    text-align: center;
+
+}
+#main {
+    background: linear-gradient(to top, gray, white);
+    text-align: center;
+    padding-bottom: 10px;
+    width: 60%;
+    margin: auto;
+    border-radius: 25px;
+}
+#main button {
+    float: right;
+
+}
+#main h1 {
+    display: inline;
+    margin: auto 20px auto auto;
+    text-align: center;
+}
+.newS button{
+    /* float: right; */
+    margin: 5px auto 10px auto;
+    display: block;
+   
+    border: 2px solid rgb(56, 56, 56);
+}
+.secret {
+    border: 1px solid gray;
+    margin: 0px auto 5px auto;
+    width : 350px;
+    padding: 5px;
+}
+.row {
+    margin: 0px 5px 0px auto;;
+}
+.butt {
+    display: inline;
+}
+.cont {
+    height: 500px;
+    width: 250px;
+    border: 2px 0px 2px 0px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 5px auto;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136); 
+    border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(58, 58, 58); 
+}

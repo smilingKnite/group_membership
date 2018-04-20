@@ -1,0 +1,55 @@
+<br>
+<header>
+    <div >
+        <button><a href="/home">Dashboard</a></button>
+        <p>||</p>
+        <button><a href="/logout">Logout</a></button>
+    </div>
+</header>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-12 ">
+            <h3><%= @org.name %>
+            <% if @user.id == @org.user.id%>
+                <h6>
+                <form action="/delete/<%= @org.id %>" method="post" class="butt">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="patch">
+                    <input type="submit" value="Delete">
+                </form></h6></h3>
+            <% elsif @org.members.find_by(user_id:@user.id) %>
+                <h6>
+                <form action="/leave/<%= @org.id %>" method="post" class="butt">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="patch">
+                    <input type="submit" value="Leave Group">
+                </form></h6></h3>
+            <% else  %>
+                <h6>
+                <form action="/join/<%= @org.id %>" method="post" class="butt">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="patch"> 
+                    <input type="submit" value="Join">
+                </form></h6></h3>
+            <% end %>
+            </h3>
+            <h6><%= @org.description %></h6>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 ">
+            <h3>Created By: <% if @user.id == @org.members.first.user.id %>
+                            YOU</h3>
+                            <% else %>
+                                <%= @org.members.first.user.name %></h3>
+                            <% end %>
+            <h6>Members:</h6>
+            <% @org.members.each do |m|%>
+                
+                <p><%= m.user.name %></p>
+            <% end %>
+        </div>
+    </div>
+</div>
