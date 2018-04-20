@@ -60,7 +60,10 @@ class UsersController < ApplicationController
   end
 
   def join
-    @user = User.find_by(email: session[:email])
+    # @user = User.find_by(email: session[:email])
+    @user = current_user
+    puts "------------------"
+    puts session
     @org = Organization.find(params[:id])
     if @org.members.find_by(user_id:@user.id)
       redirect_to '/home'

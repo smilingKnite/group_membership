@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   patch '/leave/:id' => 'users#leave'
 
-  patch '/delete/:id' => 'users#delete'
+  # patch '/delete/:id' => 'users#delete'
+
+  post '/delete/:id' => 'users#delete'
 
   post '/process/create' => 'users#create'
   
